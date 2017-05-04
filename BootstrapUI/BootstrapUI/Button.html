@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/js/bootstrap.min.js"></script>
+    <link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="padding-top: 20px">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="well">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">User Name</label>
+                                <input readonly class="form-control" placeholder="Enter User Name" type="text" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group has-feedback col-md-10 col-md-offset-1">
+                                <label class="control-label">Password</label>
+                                <input class="form-control" placeholder="Enter Password" id="frmPassword" type="text" />
+                                <span class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group has-error has-feedback col-md-10 col-md-offset-1">
+                                <label class="control-label">Description</label>
+                                <textarea class="form-control" placeholder="Enter The Description" rows="2"></textarea>
+                                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10 col-md-offset-1">
+                                <label>Please select an option </label>
+                                <select class="form-control">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 col-md-offset-1 pull-left">
+                                <br />
+                                <a class="btn btn-primary form-control" href="Table.html">Log In</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="well">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group has-success has-feedback col-md-5">
+                            <label class="col-md-3 control-label" for="txtPassword">Password</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">#</span>
+                                    <input type="text" class="form-control" id="txtPassword" placeholder="Strong Password" />
+                                </div>
+                                <span class="help-block">Strong Password</span>
+                                <span class="glyphicon glyphicon-ok-circle form-control-feedback"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group has-warning has-feedback col-md-5">
+                            <label for="txtWeakPassword" class="control-label col-md-3"> Password</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">#</span>
+                                    <input type="text" class="form-control" placeholder="Weak Password" id="txtWeakPassword" />
+                                </div>
+                                <span class="help-block">Weak Password</span>
+                                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group has-error has-feedback col-md-5">
+                            <label for="txtWrongPassword" class="col-md-3 control-label"> Password</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">#</span>
+                                    <input type="text" placeholder="Wrong Password" id="txtWrongPassword" class="form-control" />
+                                </div><span class="help-block">Wrong Password</span>
+                                <span class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

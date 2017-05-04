@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/js/bootstrap.min.js"></script>
+    <link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/CustomeStyleSheet.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.collapse').on('shown.bs.collapse', function () {
+                $(this).parent().find('.glyphicon-plus-sign').removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign');
+            }).on('hide.bs.collapse', function () {
+                $(this).parent().find('.glyphicon-minus-sign').removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign');
+            });
+            $('#btnExpendAll').click(function () {
+                $('.panel-body.collapse').collapse('show');
+            });
+            $('#btnCollapseAll').click(function () {
+                $('.panel-body.collapse.in').collapse('hide');
+            });
+            $('#mdlClose').click(function () {
+                $('#modelLogin').modal('hide');
+            });
+            $('#mdlCross').click(function () {
+                $('#modelLogin').modal('hide');
+            });
+
+            $('[data-toggle="tooltip"]').tooltip({
+                title: "<h4>Tip</h4><p>Sample Tooltip from JQuery</p>",
+                placement: "left",
+                animation: true,
+                delay: { show: 300, hide: 1000 },
+                html: true
+            });
+            $('#txtName').tooltip({
+                title: "<h4>Tips</h4><p>textbox tooltip</p>",
+                trigger: 'manual',
+                placement: 'top',
+                html: true
+            });
+            $('#spnHelp').click(function () {
+                $('#txtName').tooltip('toggle');
+            });
+            $('#btnPopover').popover();
+            //$('#modelLogin').on('show.bs.modal', function () { alert('show.bs.modal') });
+            //$('#modelLogin').on('shown.bs.modal', function () { alert('shown.bs.modal') });
+            //$('#modelLogin').on('hide.bs.modal', function () { alert('hide.bs.modal') });
+            //$('#modelLogin').on('hidden.bs.modal', function () { alert('hidden.bs.modal') });
+        })
+    </script>
+</head>
+<body style="padding-top: 70px">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Products <span class="caret"></span></a></li>
+                    <li>
+                        <form class="navbar-form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Search" class="form-control" />
+                                    <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span></span>
+                                </div>
+                            </div>
+                            &nbsp;
+                            <a href="#modelLogin" class="btn btn-primary" data-toggle="modal">Log In</a>
+                        </form>
+                    </li>
+                    <li></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#modelLogin" data-toggle="modal">Login</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div>
+
+            <div class="row">
+                <div class="modal fade " id="modelLogin" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog ">
+                        <div class="modal-content col-sm-10">
+                            <div class="modal-header">
+                                <button class="close" data-dissmiss="modal" id="mdlCross">&times;</button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group has-feedback has-warning">
+                                        <label for="txtUserName" class="control-label col-md-4">User Name</label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">#</span>
+                                                <input type="text" placeholder="User Name" id="txtUserName" class="form-control" />
+                                            </div><span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback has-warning">
+                                        <label class="col-md-4 control-label" for="txtPassword">Password</label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">#</span>
+                                                <input class="form-control col-md-9" type="text" placeholder="Enter Password" id="txtPassword" />
+                                            </div>
+                                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback has-success">
+                                        <label for="txtAmount" class="control-label col-md-4">Amount</label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">$</span>
+                                                <input id="txtAmount" placeholder="Enter Amount" class="form-control" />
+                                            </div>
+                                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary">Login</button>
+                                <button class="btn btn-primary" data-dissmiss="modal" id="mdlClose">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-md-3">
+                <div class="well">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">About</div>
+                        <div class="panel-body">
+                            <p class="text-justify">Themes and styles also help keep your document coordinated. When you click Design and choose a new Theme, the pictures, charts, and SmartArt graphics change to match your new theme. When you apply styles, your headings change to match the new theme.</p>
+                        </div>
+                        <div class="panel-footer">@Copyright</div>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tabAccordion" data-toggle="tab">Accordion</a> </li>
+                    <li><a href="#tabMedia" data-toggle="tab">Media Sample</a> </li>
+                    <li> <a href="#tabProgress" data-toggle="tab">Progress Bar</a> </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Pager <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tabPager" data-toggle="tab">Pager</a> </li>
+                            <li><a href="#tabPagination" data-toggle="tab">Pagination</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#tabPanel" data-toggle="tab">Panel</a> </li>
+                    <li><a href="#tabInputGroup" data-toggle="tab">Input Group</a> </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Buttons&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tabButtonGroup" data-toggle="tab">Button Group</a></li>
+                            <li><a href="#tabTooltipButton" data-toggle="tab">Button Tooltip</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#tabListGroup" data-toggle="tab">List Group</a> </li>
+                    <li><a href="#tabAlert" data-toggle="tab">Alert</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Carousel&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#tabCarousel" data-toggle="tab">Image Carousel</a></li>
+                            <li><a href="#tabMultiCarousel" data-toggle="tab">Multi Column Carousel</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="well">
+                    <div class="tab-content">
+                        <div id="tabAccordion" class="tab-pane active">
+                            <h3>Accordion</h3>
+                            <br />
+                            <!-- Accordion-->
+                            <div>
+                                <button class="btn btn-primary" id="btnExpendAll">Expend All</button>
+                                <button class="btn btn-primary" id="btnCollapseAll">Collapse All</button>
+                            </div>
+                            <br />
+                            <div id="accordion" class="panel-group">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a href="#pnlBodyOne" data-toggle="collapse" data-parent="#accordion">
+                                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                                Asia
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="panel-body collapse" id="pnlBodyOne">
+                                        <ul>
+                                            <li>India</li>
+                                            <li>China</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a href="#pnlBodyTwo" data-toggle="collapse" data-parent="#accordion">
+                                                <span class="glyphicon glyphicon-plus-sign"></span> US
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="panel-body collapse" id="pnlBodyTwo">
+                                        <ul>
+                                            <li>America</li>
+                                            <li>Canada</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <button class="btn btn-primary" data-target="#pnlBody" data-toggle="collapse">Click Me</button>
+                                </div>
+                                <div class="panel-body collapse" id="pnlBody">
+                                    <a href="#" class="thumbnail">
+                                        <p>Thumbnail 1</p>
+                                        <img src="Images/a02.png" class="img-responsive" />
+                                    </a>
+
+                                    <a href="#" class="thumbnail">
+                                        <p>Thumbnail 2</p>
+                                        <img src="Images/Female-Face-FC-4-icon.png" class="img-responsive" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabMedia" class="tab-pane">
+                            <h3>Media Sample</h3>
+                            <br />
+                            <!-- Media Sample-->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="Images/a02.png" class="media-object" style="width:60px" />
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        About <small><i>27th Apr</i></small>
+                                    </h4>
+                                    <p class="text-justify">
+                                        Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.
+                                        You can also type a keyword to search online for the video that best fits your document. To make your document look professionally produced, Word provides header, footer, cover page, and text box designs that complement each other.
+                                    </p>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="Images/Female-Face-FC-4-icon.png" class="media-object" style="width:60px" />
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Jessee <small><i>27th Apr</i></small></h4>
+                                            <p class="text-justify">Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <img src="Images/Female-Face-FC-4-icon.png" class="media-object" style="width:60px" />
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Jessee<small><i>27th Apr</i></small></h4>
+                                                    <p class="text-justify">Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabProgress" class="tab-pane">
+                            <h3>Progess Bar</h3>
+                            <br />
+                            <!-- Progress Bar-->
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-danger active" style="width: 30%;min-width: 20%">
+                                    30%
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabPager" class="tab-pane">
+                            <h3>Pager</h3>
+                            <br />
+                            <!-- Pager-->
+                            <div class="row">
+                                <ul class="pager">
+                                    <li class="previous"><a href="#">&larr; Prev</a></li>
+                                    <li class="previous"><a href="#">Next &rarr;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tabPagination" class="tab-pane">
+                            <h3>Pagination</h3>
+                            <br />
+                            <!-- Pagination -->
+                            <ul class="pagination">
+                                <li><a href="#">&laquo;</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                        <div id="tabPanel" class="tab-pane">
+                            <h3>Panel</h3>
+                            <br />
+                            <div class="panel panel-success">
+                                <div class="panel-heading"> Sample Panel</div>
+                                <div class="panel-body text-justify">
+                                    Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document.
+                                    To make your document look professionally produced, Word provides header, footer, cover page, and text box designs that complement each other. For example, you can add a matching cover page, header, and sidebar. Click Insert and then choose the elements you want from the different galleries.
+
+                                </div>
+                                <br />
+                                <div class="panel-footer">
+                                    Please press <kbd>CTRL</kbd> + <kbd>F1</kbd>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabInputGroup" class="tab-pane">
+                            <h3>Input Group Samples</h3>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-briefcase"></span></span>
+                                        <input class="form-control" type="text" placeholder="Enter text" />
+                                        <span class="input-group-addon"><input type="radio" /></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" placeholder="Enter Text" class="form-control" />
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default">Cut</button>
+                                            <button class="btn btn-default">Copy</button>
+                                            <button class="btn btn-default">Paste</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" />
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action<span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action 1</a></li>
+                                                <li><a href="#">Action 2</a></li>
+                                                <li><a href="#">Action 3</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabButtonGroup" class="tab-pane">
+                            <h3>Button Samples</h3>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="btn-group">
+                                        <a class="btn btn-default">Button 1</a>
+                                        <a class="btn btn-default">Button 2</a>
+                                        <a class="btn btn-default">Button 3</a>
+                                        <div class="btn-group">
+                                            <button class="dropdown-toggle btn btn-warning" data-toggle="dropdown">Click Me &nbsp;<span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Option 1</a></li>
+                                                <li><a href="#">Option 2</a></li>
+                                                <li><a href="#">Option 3</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-control col-md-10">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabTooltipButton" class="tab-pane">
+                            <h3>Button with tooltip</h3>
+                            <br />
+                            <br />
+                            <div class="defaultDiv">
+                                <lable>Name:</lable>
+                                <input type="text" placeholder="Enter Text" id="txtName" />
+                                <span class="glyphicon glyphicon-info-sign" id="spnHelp"></span>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="defaultDiv">
+                                <button class="btn btn-primary pull-right" data-toggle="tooltip">Hover for Tooltip</button><button class="btn btn-primary" data-placement="right" data-toggle="popover" data-html="true" data-content="<img src='Images/a02.png' class='img-responsive' />" data-trigger="hover" title="Popover Tips" id="btnPopover">PopOver</button>
+                            </div>
+                        </div>
+                        <div id="tabListGroup" class="tab-pane">
+                            <h3>List Group</h3>
+                            <br />
+                            <div class="row">
+                                <div class="list-group">
+                                    <a class="list-group-item list-group-item-warning" href="#">A<span class="badge">#</span></a>
+                                    <a class="list-group-item" href="#">B</a>
+                                    <a class="list-group-item" href="#">C</a>
+                                    <a class="list-group-item disabled" href="#">D</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabAlert" class="tab-pane">
+                            <div class="alert alert-danger">
+                                <a href="#" data-dismiss="alert" class="close"><span class="glyphicon glyphicon-remove"></span></a>
+                                <strong>Error !!</strong> There is something wrong here.
+                            </div>
+                            <br />
+                            <div class="alert alert-warning">
+                                <a href="#" class="close" data-dismiss="alert"><span class="glyphicon glyphicon-info-sign"></span> </a>
+                                <strong>Warning !!</strong> There is something which u can look or ignore.
+                            </div>
+                            <br />
+                            <div class="alert alert-success">
+                                <a href="#" class="close" data-dismiss="alert"><span class="glyphicon glyphicon-ok"></span></a>
+                                <strong>Success !!</strong> Everthing Went fine.
+                            </div>
+                        </div>
+                        <div id="tabCarousel" class="tab-pane">
+                            <div class="carousel" id="imageCarousel" data-interval="2000">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#imageCarousel" data-slide-to="0"></li>
+                                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                                    <li data-target="#imageCarousel" data-slide-to="2"></li>
+                                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                                    <li data-target="#imageCarousel" data-slide-to="4"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="Images/Carousel/WDF_575498.jpg" class="img-responsive" alt="Picture 1" />
+                                        <div class="carousel-caption">
+                                            <h3>Picture 1</h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="Images/Carousel/WDF_575610.jpg" class="img-responsive" alt="Picture 2" />
+                                        <div class="carousel-caption">
+                                            <h3>Picture 2</h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="Images/Carousel/WDF_575786.jpg" class="img-responsive" alt="Picture 3" />
+                                        <div class="carousel-caption">
+                                            <h3>Picture 3</h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="Images/Carousel/WDF_576117.jpg" class="img-responsive" alt="Picture 4" />
+                                        <div class="carousel-caption">
+                                            <h3>Picture 4</h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="Images/Carousel/WDF_576374.jpg" class="img-responsive" alt="Picture 5" />
+                                        <div class="carousel-caption">
+                                            <h3>Picture 5</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="tabMultiCarousel" class="tab-pane">
+                            <div class="carousel" id="imageMultiCarousel" data-interval="2000">
+                                <ol class="carousel-indicators">
+                                    <li data-target="imageMultiCarousel" data-slide-to="0"></li>
+                                    <li data-target="imageMultiCarousel" data-slide-to="1"></li>
+                                    <li data-target="imageMultiCarousel" data-slide-to="2"></li>
+                                    <li data-target="imageMultiCarousel" data-slide-to="3"></li>
+                                    <li data-target="imageMultiCarousel" data-slide-to="4"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_575498.jpg" class="img-responsive" alt="Picture 1" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 1</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_575610.jpg" class="img-responsive" alt="Picture 2" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 2</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_575786.jpg" class="img-responsive" alt="Picture 3" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 3</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_576117.jpg" class="img-responsive" alt="Picture 4" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 4</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_576374.jpg" class="img-responsive" alt="Picture 5" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 5</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_576466.jpg" class="img-responsive" alt="Picture 6" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 6</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="Images/Carousel/WDF_576753.jpg" class="img-responsive" alt="Picture 7" />
+                                                <div class="carousel-caption">
+                                                    <h3>Picture 7</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#imageMultiCarousel" class="carousel-control left" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a href="#imageMultiCarousel" class="carousel-control right" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
